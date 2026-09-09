@@ -1,0 +1,1066 @@
+.home {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #222;
+}
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 100;
+  padding: 0 40px;
+}
+
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff385c;
+  font-weight: 700;
+  font-size: 22px;
+  min-width: 140px;
+}
+
+.navbar-tabs {
+  display: flex;
+  gap: 32px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #717171;
+  padding: 10px 4px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: #222;
+  border-bottom-color: #222;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.host-link {
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.host-link:hover {
+  background: #f7f7f7;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+.menu-btn {
+  width: auto;
+  padding: 0 10px 0 8px;
+  border-radius: 21px;
+}
+
+/* MENU */
+.user-menu {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  z-index: 200;
+}
+
+.user-menu button {
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.user-menu button:hover {
+  background: #f7f7f7;
+}
+
+.user-menu hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 6px 0;
+}
+
+/* SEARCH */
+.search-pill {
+  display: flex;
+  align-items: center;
+  max-width: 850px;
+  margin: 0 auto 24px;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.search-field {
+  flex: 1;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 40px;
+  position: relative;
+}
+
+.search-field.open {
+  background: #f2f2f2;
+}
+
+.search-field.who-field.open {
+  background: #fff;
+  padding-right: 8px;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.field-value,
+.search-field input {
+  font-size: 14px;
+  color: #717171;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background: #ddd;
+}
+
+.who-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-btn {
+  background: #ff385c;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.guests-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 380px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+  padding: 16px 24px;
+  cursor: default;
+  z-index: 150;
+}
+
+.guest-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.guest-row:last-child {
+  border-bottom: none;
+}
+
+.guest-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.guest-subtitle {
+  font-size: 13px;
+  color: #717171;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepper button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.stepper button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 32px;
+  padding: 16px 40px;
+  border-bottom: 1px solid #eee;
+  overflow-x: auto;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 8px 2px;
+  cursor: pointer;
+  opacity: 0.6;
+  border-bottom: 2px solid transparent;
+  min-width: 56px;
+}
+
+.category-item:hover {
+  opacity: 1;
+}
+
+.category-icon {
+  font-size: 22px;
+}
+
+.category-label {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* PROPERTY GRID */
+.property-section {
+  padding: 32px 40px;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.property-card {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  font-size: 16px;
+}
+
+.card-image-wrapper:hover .nav-arrow {
+  opacity: 1;
+}
+
+.nav-arrow.left {
+  left: 8px;
+}
+
+.nav-arrow.right {
+  right: 8px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dot.active {
+  background: #fff;
+  width: 6px;
+  height: 6px;
+}
+
+.card-info {
+  padding-top: 8px;
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-rating {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.card-location,
+.card-price {
+  font-size: 14px;
+  color: #717171;
+  margin-top: 2px;
+}
+
+/* FOOTER */
+.footer {
+  background: #f7f7f7;
+  padding: 40px;
+  margin-top: 60px;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.footer-columns h4 {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-columns li {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-columns li:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  margin-top: 32px;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #444;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .navbar-tabs {
+    display: none;
+  }
+
+  .property-section {
+    padding: 24px 16px;
+  }
+
+  .navbar,
+  .categories {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}/* ================================
+   WHERE MAP
+================================ */
+
+.search-field {
+  position: relative;
+}
+
+.where-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -20px;
+  width: 430px;
+  background: white;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  z-index: 300;
+}
+
+.map-title {
+  padding: 5px 5px 14px;
+  font-size: 15px;
+}
+
+.fake-map {
+  height: 230px;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(
+      25deg,
+      transparent 45%,
+      white 46%,
+      white 48%,
+      transparent 49%
+    ),
+    linear-gradient(
+      110deg,
+      transparent 45%,
+      white 46%,
+      white 48%,
+      transparent 49%
+    ),
+    #dfe8d8;
+}
+
+.map-water {
+  position: absolute;
+  width: 120px;
+  height: 280px;
+  right: -20px;
+  top: -20px;
+  background: #b9dce8;
+  border-radius: 50%;
+  transform: rotate(20deg);
+}
+
+.map-road {
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+}
+
+.road-1 {
+  width: 500px;
+  height: 14px;
+  top: 70px;
+  left: -50px;
+  transform: rotate(15deg);
+}
+
+.road-2 {
+  width: 500px;
+  height: 12px;
+  top: 145px;
+  left: -40px;
+  transform: rotate(-18deg);
+}
+
+.road-3 {
+  width: 350px;
+  height: 10px;
+  top: 30px;
+  left: 70px;
+  transform: rotate(70deg);
+}
+
+.road-4 {
+  width: 300px;
+  height: 9px;
+  top: 100px;
+  left: 180px;
+  transform: rotate(65deg);
+}
+
+.map-pin {
+  position: absolute;
+  border: none;
+  background: #ff385c;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.map-pin:hover {
+  transform: scale(1.1);
+}
+
+.pin-cairo {
+  left: 52%;
+  top: 48%;
+}
+
+.pin-new-cairo {
+  left: 67%;
+  top: 32%;
+}
+
+.pin-alex {
+  left: 25%;
+  top: 28%;
+}
+
+.map-label {
+  position: absolute;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.cairo-label {
+  left: 47%;
+  top: 67%;
+}
+
+.alex-label {
+  left: 19%;
+  top: 45%;
+}
+
+.map-suggestions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-suggestions button {
+  border: none;
+  background: white;
+  padding: 12px 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.map-suggestions button:hover {
+  background: #f7f7f7;
+}
+
+.map-suggestions button div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.map-suggestions strong {
+  font-size: 14px;
+}
+
+.map-suggestions small {
+  color: #717171;
+  font-size: 12px;
+}/* ================================
+   WHERE DROPDOWN
+================================ */
+
+.destination-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -10px;
+  width: 360px;
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  z-index: 300;
+}
+
+.destination-dropdown h3 {
+  margin: 0 0 15px;
+  font-size: 16px;
+}
+
+.destination-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.destination-item {
+  border: none;
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.destination-item:hover {
+  background: #f7f7f7;
+}
+
+.destination-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.destination-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.destination-item strong {
+  font-size: 14px;
+}
+
+.destination-item small {
+  color: #717171;
+  font-size: 13px;
+}
+
+/* ================================
+   WHEN / CALENDAR
+================================ */
+
+.calendar-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -80px;
+  width: 390px;
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  z-index: 300;
+}
+
+.calendar-dropdown h3 {
+  margin: 0 0 20px;
+  font-size: 17px;
+}
+
+.calendar-fields {
+  display: flex;
+  gap: 12px;
+}
+
+.calendar-fields > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.calendar-fields label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.calendar-fields input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.calendar-done {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Make dropdowns appear above everything */
+
+.search-pill,
+.search-field {
+  position: relative;
+}
+
+.destination-dropdown,
+.calendar-dropdown,
+.guests-dropdown {
+  z-index: 500;
+}
+/* ================================
+   WHERE DROPDOWN
+================================ */
+
+.search-field {
+  position: relative;
+}
+
+.where-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -20px;
+  width: 430px;
+  background: white;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  z-index: 300;
+}
+
+.map-title {
+  padding: 5px 5px 14px;
+  font-size: 15px;
+}
+
+.fake-map {
+  height: 230px;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(
+      25deg,
+      transparent 45%,
+      white 46%,
+      white 48%,
+      transparent 49%
+    ),
+    linear-gradient(
+      110deg,
+      transparent 45%,
+      white 46%,
+      white 48%,
+      transparent 49%
+    ),
+    #dfe8d8;
+}
+
+.map-water {
+  position: absolute;
+  width: 120px;
+  height: 280px;
+  right: -20px;
+  top: -20px;
+  background: #b9dce8;
+  border-radius: 50%;
+  transform: rotate(20deg);
+}
+
+.map-road {
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+}
+
+.road-1 {
+  width: 500px;
+  height: 14px;
+  top: 70px;
+  left: -50px;
+  transform: rotate(15deg);
+}
+
+.road-2 {
+  width: 500px;
+  height: 12px;
+  top: 145px;
+  left: -40px;
+  transform: rotate(-18deg);
+}
+
+.road-3 {
+  width: 350px;
+  height: 10px;
+  top: 30px;
+  left: 70px;
+  transform: rotate(70deg);
+}
+
+.road-4 {
+  width: 300px;
+  height: 9px;
+  top: 100px;
+  left: 180px;
+  transform: rotate(65deg);
+}
+
+.map-pin {
+  position: absolute;
+  border: none;
+  background: #ff385c;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.map-pin:hover {
+  transform: scale(1.1);
+}
+
+.pin-cairo {
+  left: 52%;
+  top: 48%;
+}
+
+.pin-new-cairo {
+  left: 67%;
+  top: 32%;
+}
+
+.pin-alex {
+  left: 25%;
+  top: 28%;
+}
+
+.map-label {
+  position: absolute;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.cairo-label {
+  left: 47%;
+  top: 67%;
+}
+
+.alex-label {
+  left: 19%;
+  top: 45%;
+}
+
+.map-suggestions {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-suggestions button {
+  border: none;
+  background: white;
+  padding: 12px 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.map-suggestions button:hover {
+  background: #f7f7f7;
+}
+
+.map-suggestions button div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.map-suggestions strong {
+  font-size: 14px;
+}
+
+.map-suggestions small {
+  color: #717171;
+  font-size: 12px;
+}
+
+
+/* ================================
+   WHEN / DATE DROPDOWN
+================================ */
+
+.date-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: -80px;
+  width: 430px;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  z-index: 300;
+}
+
+.date-title {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.date-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-box label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.date-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 13px;
+  background: white;
+}
+
+.done-date-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.done-date-btn:hover {
+  background: #444;
+}
