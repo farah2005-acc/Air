@@ -1,151 +1,122 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../src/assets/airbnb.png";
 import "./login.css";
 
 function Login() {
-  const navigate = useNavigate();
-
-  const [method, setMethod] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignUp, setIsSignUp] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email && password) {
-      navigate("/");
-    }
+    // Demo only
+    localStorage.setItem("userEmail", email);
+
+    navigate("/");
   };
 
   return (
     <div className="login-page">
 
-      <button
-        className="back-to-home"
-        onClick={() => navigate("/")}
-      >
-        ← Back to Airbnb
-      </button>
-
-      <div className="login-container">
-
-        <div className="login-box">
-
-          <div className="login-header">
-            <h1>🅰️ airbnb</h1>
-
-            <h2>
-              {isSignUp
-                ? "Create your account"
-                : "Log in or sign up"}
-            </h2>
-          </div>
-
-          {!method ? (
-            <div className="method-selector">
-
-              <button
-                className="method-btn"
-                onClick={() => setMethod("email")}
-              >
-                Continue with email
-              </button>
-
-              <button
-                className="method-btn social"
-                onClick={() => setMethod("google")}
-              >
-                Continue with Google
-              </button>
-
-              <button
-                className="method-btn social"
-                onClick={() => setMethod("apple")}
-              >
-                Continue with Apple
-              </button>
-
-            </div>
-          ) : (
-            <>
-              <button
-                className="back-method"
-                onClick={() => setMethod(null)}
-              >
-                ← Change method
-              </button>
-
-              <form
-                className="login-form"
-                onSubmit={handleSubmit}
-              >
-
-                <label>Email</label>
-
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) =>
-                    setEmail(e.target.value)
-                  }
-                  placeholder="your@email.com"
-                  required
-                />
-
-                <label>Password</label>
-
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) =>
-                    setPassword(e.target.value)
-                  }
-                  placeholder="••••••••"
-                  required
-                />
-
-                <button
-                  type="submit"
-                  className="submit-btn"
-                >
-                  {isSignUp ? "Sign up" : "Log in"}
-                </button>
-
-              </form>
-
-              <div className="auth-toggle">
-
-                {isSignUp ? (
-                  <p>
-                    Already have an account?{" "}
-                    <button
-                      onClick={() => setIsSignUp(false)}
-                      className="toggle-btn"
-                    >
-                      Log in
-                    </button>
-                  </p>
-                ) : (
-                  <p>
-                    Don't have an account?{" "}
-                    <button
-                      onClick={() => setIsSignUp(true)}
-                      className="toggle-btn"
-                    >
-                      Sign up
-                    </button>
-                  </p>
-                )}
-
-              </div>
-            </>
-          )}
-
-        </div>
-
+      {/* Logo */}
+      <div className="login-logo">
+        <img src={logo} alt="Airbnb" />
       </div>
 
+      {/* Login Card */}
+      <div className="login-card">
+
+        {/* Header */}
+        <div className="login-header">
+          <button
+            type="button"
+            className="close-btn"
+            onClick={() => navigate("/")}
+          >
+            ×
+          </button>
+
+          <h3>Log in or sign up</h3>
+        </div>
+
+        {/* Content */}
+        <div className="login-content">
+
+          <h2>Welcome to Airbnb</h2>
+
+          <form onSubmit={handleSubmit}>
+
+            {/* Email */}
+            <div className="input-group">
+              <label>Email</label>
+
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Password */}
+            <div className="input-group">
+              <label>Password</label>
+
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Continue */}
+            <button type="submit" className="continue-btn">
+              Continue
+            </button>
+
+          </form>
+
+          {/* Divider */}
+          <div className="divider">
+            <span></span>
+            <p>or</p>
+            <span></span>
+          </div>
+
+          {/* Google */}
+          <button className="social-btn">
+            <span className="google-icon">G</span>
+            Continue with Google
+          </button>
+
+          {/* Apple */}
+          <button className="social-btn">
+            <span className="apple-icon"></span>
+            Continue with Apple
+          </button>
+
+          {/* Facebook */}
+          <button className="social-btn">
+            <span className="facebook-icon">f</span>
+            Continue with Facebook
+          </button>
+
+          {/* Terms */}
+          <p className="terms">
+            By continuing, you agree to Airbnb's{" "}
+            <span>Terms of Service</span>,{" "}
+            <span>Privacy Policy</span> and{" "}
+            <span>Nondiscrimination Policy</span>.
+          </p>
+
+        </div>
+      </div>
     </div>
   );
 }

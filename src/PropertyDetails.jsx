@@ -9,6 +9,19 @@ import apartment5 from "./assets/apartment5.jpg";
 import apartment6 from "./assets/apartment6.jpg";
 import apartment7 from "./assets/apartment7.jpg";
 import apartment8 from "./assets/apartment8.jpg";
+import apartment9 from "./assets/images (1).jpeg";
+import apartment10 from "./assets/images (2).jpeg";
+import apartment11 from "./assets/images (3).jpeg";
+import apartment12 from "./assets/images (4).jpeg"; 
+import apartment13 from "./assets/images (5).jpeg";
+import apartment14 from "./assets/images (6).jpeg";
+import apartment15 from "./assets/images (7).jpeg";
+import apartment16 from "./assets/images (13).jpeg";
+import apartment17 from "./assets/images (15).jpeg";
+import apartment18 from "./assets/images (16).jpeg";
+import apartment19 from "./assets/images (19).jpeg";
+import apartment20 from "./assets/images (11).jpeg";
+import apartment21 from "./assets/images (12).jpeg";
 
 import "./PropertyDetails.css";
 
@@ -226,6 +239,140 @@ const defaultProperties = {
       apartment2,
     ],
   },
+  9: {
+    id: 9,
+    title: "Luxury Apartment in sharm el sheikh",
+    location: "Sharm el Sheikh, Egypt",
+    rating: 4.9,
+    price: 200,
+    type: "Luxury",
+    guests: 4,
+    bedrooms: 2,
+    beds: 3,
+    bathrooms: 2,
+    amenities: [
+      "Wi-Fi",
+      "Pool",
+      "Spa",
+    ],
+    description:
+      "Experience luxury in this stunning apartment in Sharm el Sheikh, offering breathtaking views and top-notch amenities.",
+    host: "Sara",
+    hostYears: 6,
+    images: [
+      apartment9,
+      apartment10,
+      apartment11,
+    ],
+  },
+  10: {
+    id: 10,
+    title: "Modern hotel in sharm el sheikh",
+    location: "Sharm el Sheikh, Egypt",
+    rating: 4.8,
+    price: 180,
+    type: "Modern",
+    guests: 4,
+    bedrooms: 2,
+    beds: 2,
+    bathrooms: 2,
+    amenities: [
+      "Wi-Fi",
+      "Pool",
+      "Gym",
+    ],
+    description:
+      "Stay in this modern hotel in Sharm el Sheikh, offering comfortable rooms and excellent facilities.",
+    host: "Mohamed",
+    hostYears: 5,
+    images: [
+      apartment13,
+      apartment12,
+      apartment11,
+      apartment13,
+    ],
+  },
+  11: {
+    id: 11,
+    title: "Luxury villa in sharm el sheikh",
+    location: "Sharm el Sheikh, Egypt",
+    rating: 4.9,
+    price: 300,
+    type: "Luxury",
+    guests: 6,
+    bedrooms: 3,
+    beds: 4,
+    bathrooms: 3,
+    amenities: [
+      "Wi-Fi",
+      "Pool",
+      "Spa",
+      "Gym",
+    ],
+    description:
+      "Indulge in luxury at this stunning villa in Sharm el Sheikh, featuring panoramic views and world-class amenities.",
+    host: "Layla",
+    hostYears: 8,
+    images: [
+      apartment15,
+      apartment12,
+      apartment8,
+    ],
+  },
+  12: {
+    id: 12,
+    title: "Modern apartment in sharm el sheikh",
+    location: "Sharm el Sheikh, Egypt",
+    rating: 4.8,
+    price: 180,
+    type: "Modern",
+    guests: 4,
+    bedrooms: 2,
+    beds: 2,
+    bathrooms: 2,
+    amenities: [
+      "Wi-Fi",
+      "Pool",
+      "Gym",
+    ],
+    description:
+      "Stay in this modern apartment in Sharm el Sheikh, offering comfortable rooms and excellent facilities.",
+    host: "Mohamed",
+    hostYears: 5,
+    images: [
+      apartment7,
+      apartment12,
+      apartment14,
+      apartment13,
+    ],
+  },
+  13: {
+    id: 13,
+    title: " in sharm el sheikh",
+    location: "Sharm el Sheikh, Egypt",
+    rating: 4.9,
+    price: 300,
+    type: "Luxury",
+    guests: 6,
+    bedrooms: 3,
+    beds: 4,
+    bathrooms: 3,
+    amenities: [
+      "Wi-Fi",
+      "Pool",
+      "Spa",
+      "Gym",
+    ],
+    description:
+      "Indulge in luxury at this stunning villa in Sharm el Sheikh, featuring panoramic views and world-class amenities.",
+    host: "Layla",
+    hostYears: 8,
+    images: [
+      apartment9,
+      apartment12,
+      apartment8,
+    ],
+  },
 };
 
 function PropertyDetails() {
@@ -235,8 +382,24 @@ function PropertyDetails() {
 
   const passedProperty = location.state?.property;
 
+  // A hosted listing may be opened directly (without router state),
+  // so also resolve it from localStorage by id.
+  let savedHostedProperty = null;
+  try {
+    const hostedProperties = JSON.parse(
+      localStorage.getItem("hostProperties") || "[]"
+    );
+
+    savedHostedProperty = Array.isArray(hostedProperties)
+      ? hostedProperties.find((item) => String(item.id) === String(id))
+      : null;
+  } catch {
+    savedHostedProperty = null;
+  }
+
   const property =
     passedProperty ||
+    savedHostedProperty ||
     defaultProperties[id] ||
     defaultProperties[1];
 
@@ -304,8 +467,8 @@ function PropertyDetails() {
 
       const updated = exists
         ? saved.filter(
-            (item) => item.id !== property.id
-          )
+          (item) => item.id !== property.id
+        )
         : [...saved, property];
 
       localStorage.setItem(
@@ -336,20 +499,25 @@ function PropertyDetails() {
     setReviewText("");
   }
 
+  const [error, setError] = useState("");
   function handleReserve() {
     if (!checkIn || !checkOut) {
-      alert("Please select check-in and check-out dates.");
+      setError("Please select both check-in and check-out dates.");
       return;
     }
 
-    alert(
-      `Reservation request sent for ${guests} guest${
-        guests > 1 ? "s" : ""
-      }!`
-    );
+    setError("");
 
-    setShowBooking(false);
+    navigate("/booking", {
+      state: {
+        property,
+        checkIn,
+        checkOut,
+        guests,
+      },
+    });
   }
+
 
   const totalReviews = reviews.length;
 
@@ -370,9 +538,8 @@ function PropertyDetails() {
         <h2>Property Details</h2>
 
         <button
-          className={`details-heart ${
-            wishlist ? "saved" : ""
-          }`}
+          className={`details-heart ${wishlist ? "saved" : ""
+            }`}
           onClick={toggleWishlist}
         >
           {wishlist ? "♥" : "♡"}
@@ -413,6 +580,7 @@ function PropertyDetails() {
           </button>
 
         </div>
+
 
         {/* GALLERY */}
 
@@ -708,7 +876,15 @@ function PropertyDetails() {
               </div>
 
             </div>
-
+            {error && (
+              <div
+                className="alert alert-warning d-flex align-items-center gap-2 rounded-4 shadow-sm mt-3"
+                role="alert"
+              >
+                <span className="fs-5">⚠️</span>
+                <span>{error}</span>
+              </div>
+            )}
             <button
               className="reserve-btn"
               onClick={() =>

@@ -3,37 +3,7 @@
   color: #222;
 }
 
-/* NAVBAR */
-.navbar {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 100;
-  padding: 0 40px;
-}
 
-.navbar-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #ff385c;
-  font-weight: 700;
-  font-size: 22px;
-  min-width: 140px;
-}
-
-.navbar-tabs {
-  display: flex;
-  gap: 32px;
-}
 
 .tab {
   background: none;
@@ -50,13 +20,10 @@
   color: #222;
   border-bottom-color: #222;
 }
-
 .navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   position: relative;
 }
+
 
 .host-link {
   background: none;
@@ -90,12 +57,12 @@
 /* MENU */
 .user-menu {
   position: absolute;
-  top: 55px;
+  top: calc(100% + 10px);
   right: 0;
+  width: 220px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
-  width: 220px;
   display: flex;
   flex-direction: column;
   padding: 8px 0;
@@ -126,13 +93,11 @@
   display: flex;
   align-items: center;
   max-width: 850px;
-  margin: 0 auto 24px;
   border: 1px solid #ddd;
   border-radius: 40px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
   position: relative;
 }
-
 .search-field {
   flex: 1;
   padding: 12px 24px;
@@ -247,9 +212,6 @@
 
 /* CATEGORIES */
 .categories {
-  display: flex;
-  gap: 32px;
-  padding: 16px 40px;
   border-bottom: 1px solid #eee;
   overflow-x: auto;
 }
@@ -1063,4 +1025,320 @@
 
 .done-date-btn:hover {
   background: #444;
+}
+/* =========================================
+   AIRBNB HEADER - NEW DESIGN
+   Logic is NOT changed
+========================================= */
+
+.home .navbar {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+  position: relative;
+  z-index: 1000;
+  padding: 0;
+}
+
+.home .navbar-top {
+  width: 100%;
+  min-height: 105px;
+  padding: 16px 40px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.home .airbnb-logo {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.home .airbnb-logo img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.home .airbnb-logo span {
+  color: #ff385c;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+
+/* =========================================
+   CENTER NAVIGATION
+========================================= */
+
+.home .navbar-tabs {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+}
+
+.home .navbar-tabs .tab {
+  min-width: 75px;
+  padding: 5px 8px 10px;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #717171;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+  position: relative;
+}
+
+.home .navbar-tabs .tab:hover {
+  color: #222;
+}
+
+.home .navbar-tabs .tab-icon {
+  font-size: 23px;
+  line-height: 1;
+}
+
+.home .navbar-tabs .tab.active {
+  color: #222;
+  border-bottom: 2px solid #222;
+  font-weight: 600;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.home .navbar-actions {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.home .host-link {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: 22px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.home .host-link:hover {
+  background: #f7f7f7;
+}
+
+
+/* =========================================
+   MENU + PROFILE BUTTON
+========================================= */
+
+.home .menu-profile-btn {
+  height: 46px;
+  min-width: 52px;
+  padding: 0 15px;
+
+  background: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.home .menu-profile-btn:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.home .hamburger {
+  color: #222;
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+/* =========================================
+   USER MENU
+========================================= */
+
+.home .navbar-actions .user-menu {
+  position: absolute;
+  top: 58px;
+  right: 0;
+
+  width: 240px;
+
+  background: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 8px 0;
+
+  z-index: 2000;
+  overflow: hidden;
+}
+
+.home .navbar-actions .user-menu button {
+  width: 100%;
+  padding: 13px 18px;
+
+  background: transparent;
+  border: none;
+
+  text-align: left;
+
+  font-size: 14px;
+  color: #222;
+
+  cursor: pointer;
+}
+
+.home .navbar-actions .user-menu button:hover {
+  background: #f7f7f7;
+}
+
+.home .navbar-actions .user-menu hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #eeeeee;
+  margin: 7px 0;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .home .navbar-top {
+    padding: 14px 20px 10px;
+  }
+
+  .home .airbnb-logo {
+    width: auto;
+  }
+
+  .home .airbnb-logo span {
+    display: none;
+  }
+
+  .home .navbar-tabs {
+    gap: 15px;
+  }
+
+  .home .navbar-tabs .tab {
+    min-width: 55px;
+  }
+
+  .home .navbar-actions {
+    width: auto;
+  }
+
+  .home .host-link {
+    display: none;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .home .navbar-tabs {
+    display: none;
+  }
+
+  .home .navbar-top {
+    min-height: 75px;
+    padding: 12px 16px;
+  }
+}
+/* =========================================
+   PROFILE + MENU BUTTON
+========================================= */
+
+.profile-menu-wrapper {
+  position: relative;
+}
+
+.profile-menu-btn {
+  height: 48px;
+  padding: 4px 7px 4px 6px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  background: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 28px;
+
+  cursor: pointer;
+
+  transition: box-shadow 0.2s ease;
+}
+
+.profile-menu-btn:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.profile-initial {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: #222;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-hamburger {
+  font-size: 19px;
+  color: #222;
+  line-height: 1;
+  padding-right: 5px;
 }
